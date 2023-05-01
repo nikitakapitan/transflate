@@ -1,15 +1,15 @@
 # called by transforers.train.py
 import torch
 import torch.nn as nn
-from transformers.main import make_model
-from transformers.training.LabelSmoothing import LabelSmoothing
-from transformers.data.dataloader import create_dataloaders
-from transformers.training.lr import rate
-from transformers.training.TrainState import TrainState
-from transformers.training.run_epoch import run_epoch
-from transformers.data.Batch import Batch
-from transformers.training.SimpleLossCompute import SimpleLossCompute
-from transformers.helper import DummyOptimizer, DummyScheduler
+from transflate.main import make_model
+from transflate.training.LabelSmoothing import LabelSmoothing
+from transflate.data.dataloader import create_dataloaders
+from transflate.training.lr import rate
+from transflate.training.TrainState import TrainState
+from transflate.training.run_epoch import run_epoch
+from transflate.data.Batch import Batch
+from transflate.training.SimpleLossCompute import SimpleLossCompute
+from transflate.helper import DummyOptimizer, DummyScheduler
 
 import GPUtil   # print GPU memory info
 

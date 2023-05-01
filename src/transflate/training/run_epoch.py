@@ -1,4 +1,4 @@
-from transformers.training.TrainState import TrainState
+from transflate.training.TrainState import TrainState
 import time
 
 def run_epoch(data_iter, model, loss_compute, optimizer, scheduler,

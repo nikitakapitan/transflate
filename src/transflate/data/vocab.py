@@ -1,4 +1,4 @@
-from transformers.data.token import tokenize, yield_tokens
+from transflate.data.token import tokenize, yield_tokens
 from os.path import exists
 
 import torch

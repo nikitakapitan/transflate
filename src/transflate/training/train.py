@@ -2,7 +2,7 @@
 This function is a fancy capsula
 The core function is transformers.training.train_worker
 """
-from transformers.training.train_worker import train_worker
+from transflate.training.train_worker import train_worker
 
 def train_model(vocab_src, vocab_tgt, spacy_de, spacy_en, config, architecture):
     """

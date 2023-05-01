@@ -1,5 +1,5 @@
-from transformers.data.token import tokenize
-from transformers.data.Batch import collate_batch
+from transflate.data.token import tokenize
+from transflate.data.Batch import collate_batch
 
 import torchtext.datasets as datasets
 from torchtext.data.functional import to_map_style_dataset

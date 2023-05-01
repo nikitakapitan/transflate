@@ -1,4 +1,4 @@
-from transformers.helper import following_mask
+from transflate.helper import following_mask
 
 # import for def collate_batch
 import torch
