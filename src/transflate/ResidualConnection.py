@@ -7,7 +7,7 @@ it also applies DropOut after LayerNorm
 
 import torch.nn as nn
 from typing import Callable # python explicit typin
-from transformers.LayerNorm import LayerNorm
+from transflate.LayerNorm import LayerNorm
 
 class ResidualConnection(nn.Module):
 

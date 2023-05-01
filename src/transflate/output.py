@@ -1,8 +1,8 @@
-from transformers.data.dataloader import create_dataloaders
+from transflate.data.dataloader import create_dataloaders
 import torch
-from transformers.main import make_model
-from transformers.data.Batch import Batch
-from transformers.helper import following_mask
+from transflate.main import make_model
+from transflate.data.Batch import Batch
+from transflate.helper import following_mask
 
 def greedy_decode(model, src, src_mask, max_len, start_symbol):
     memory = model.encode(src, src_mask)

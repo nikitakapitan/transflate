@@ -2,8 +2,8 @@
 
 from torch import dropout
 import torch.nn as nn
-from transformers.helper import clones
-from transformers.attention import attention
+from transflate.helper import clones
+from transflate.attention import attention
 
 class MultiHeadedAttention(nn.Module):
 

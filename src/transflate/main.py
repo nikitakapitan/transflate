@@ -1,19 +1,19 @@
 
 import torch.nn as nn
 from copy import deepcopy as dcopy
-from transformers.MultiHeadedAttention import MultiHeadedAttention
-from transformers.PositionWiseFeedForward import PositionWiseFeedForward
+from transflate.MultiHeadedAttention import MultiHeadedAttention
+from transflate.PositionWiseFeedForward import PositionWiseFeedForward
 
-from transformers.PositionalEncoding import PositionalEncoding
-from transformers.Embeddings import Embeddings
+from transflate.PositionalEncoding import PositionalEncoding
+from transflate.Embeddings import Embeddings
 
-from transformers.EncoderDecoder import EncoderDecoder
-from transformers.Encoder import Encoder
-from transformers.EncoderLayer import EncoderLayer
-from transformers.Decoder import Decoder
-from transformers.DecoderLayer import DecoderLayer
+from transflate.EncoderDecoder import EncoderDecoder
+from transflate.Encoder import Encoder
+from transflate.EncoderLayer import EncoderLayer
+from transflate.Decoder import Decoder
+from transflate.DecoderLayer import DecoderLayer
 
-from transformers.Generator import Generator
+from transflate.Generator import Generator
 
 def make_model(src_vocab_len, tgt_vocab_len, N=6, d_model=512, d_ff=2048, h=8, dropout=0.0):
     

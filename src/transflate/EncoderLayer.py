@@ -8,9 +8,9 @@ EncoderLayer implements two parts:
 import torch.nn  as nn
 from typing import Callable
 
-from transformers.helper import clones
-from transformers.ResidualConnection import ResidualConnection
-from transformers.LayerNorm import LayerNorm
+from transflate.helper import clones
+from transflate.ResidualConnection import ResidualConnection
+from transflate.LayerNorm import LayerNorm
 
 class EncoderLayer(nn.Module):
 

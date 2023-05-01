@@ -1,7 +1,7 @@
 from os.path import exists
 import torch
-from transformers.training.train import train_model
-from transformers.main import make_model
+from transflate.training.train import train_model
+from transflate.main import make_model
 
 # def load_trained_model(src_vocab_len, tgt_vocab_len):
     
