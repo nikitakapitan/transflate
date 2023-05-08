@@ -121,7 +121,7 @@ Now you have trained weights on you Google Drive 🤗
 -----
 
 - Go to https://colab.research.google.com/ 
-- select 'GitHub' and past https://github.com/nikitakapitan/transformers
+- select 'GitHub' and past https://github.com/nikitakapitan/transflate
 - choose [DEMO]Translate.ipynb
 
 By executing all cells you will connect to your google drive (a place where the model will search for weights **multi30k_model_final.pt**)
