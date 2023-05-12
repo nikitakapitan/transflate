@@ -4,6 +4,10 @@ from transflate.main import make_model
 from transflate.data.Batch import Batch
 from transflate.helper import following_mask
 
+# def translate
+from torch.utils.data import DataLoader
+from transflate.data.dataloader import collate_fn # tokenize_en, tokenize_de
+
 def greedy_decode(model, src, src_mask, max_len, start_symbol):
     memory = model.encode(src, src_mask)
     tgt = torch.zeros(1, 1).fill_(start_symbol).type_as(src.data)
@@ -45,9 +49,8 @@ def check_outputs(valid_dataloader, model, vocab_src, vocab_tgt,
     return results
 
 
-def run_model_example(vocab_src, vocab_tgt, spacy_de, spacy_en, architecture, n_examples=5):
+def run_model_example(vocab_src, vocab_tgt, spacy_de, spacy_en, n_examples=5):
 
-    
     data_setup = {
     'max_padding' : 128,
     }
@@ -91,3 +94,37 @@ def run_model_example(vocab_src, vocab_tgt, spacy_de, spacy_en, architecture, n_
     print("checking Model Outputs:")
     example_data = check_outputs(valid_dataloader, model, vocab_src, vocab_tgt, n_examples=n_examples)
     return model, example_data
+
+def translate(text, vocab_src, vocab_tgt, spacy_de, spacy_en):
+
+    data_setup = {
+    'max_padding' : 128,
+    }
+
+    architecture = {
+            'src_vocab_len' : len(vocab_src),
+            'tgt_vocab_len' : len(vocab_tgt),
+            'N' : 6, # loop
+            'd_model' : 512, # emb
+            'd_ff' : 2048,
+            'h' : 8,
+            'dropout' : 0.1
+        }
+
+    batched_text = [(text, "")]
+    text_dataloader = DataLoader(text, collate_fn = collate_fn)
+
+    print('Loading Trained model...')
+    model = make_model(
+    src_vocab_len=architecture['src_vocab_len'],
+    tgt_vocab_len=architecture['tgt_vocab_len'],
+    N=architecture['N'],
+    d_model=architecture['d_model'],
+    d_ff=architecture['d_ff'],
+    h=architecture['h'],
+    dropout=architecture['dropout'],
+    )
+    
+    model.load_state_dict(
+        torch.load("multi30k_model_final.pt", map_location=torch.device("cpu"))
+    )

@@ -52,3 +52,6 @@ MANIFEST
 .venv*/
 .conda*/
 .python-version
+
+# data
+multi30k_model_final.pt
