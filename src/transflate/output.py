@@ -6,7 +6,6 @@ from transflate.helper import following_mask
 
 # def translate
 from torch.utils.data import DataLoader
-from transflate.data.dataloader import collate_fn # tokenize_en, tokenize_de
 
 def greedy_decode(model, src, src_mask, max_len, start_symbol):
     memory = model.encode(src, src_mask)
@@ -111,7 +110,21 @@ def translate(text, vocab_src, vocab_tgt, spacy_de, spacy_en):
             'dropout' : 0.1
         }
 
-    batched_text = [(text, "")]
+    batch_text = [(text, "")]
+    tokenize_de = lambda x : [token.text for token in spacy_de.tokenizer(x)]
+    tokenize_en = lambda x : [token.text for token in spacy_en.tokenizer(x)]
+
+    collate_fn = lambda x:  transflate.data.Batch.collate_batch(
+            batch=x,
+            src_pipeline=tokenize_de,
+            tgt_pipeline=tokenize_en,
+            src_vocab=vocab_src,
+            tgt_vocab=vocab_tgt,
+            device=torch.device("cpu"),
+            max_padding=data_setup['max_padding'],
+            pad_id=vocab_src.get_stoi()["<blank>"],
+        )
+
     text_dataloader = DataLoader(text, collate_fn = collate_fn)
 
     print('Loading Trained model...')
