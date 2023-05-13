@@ -1,7 +1,7 @@
 from transflate.data.dataloader import create_dataloaders
 import torch
 from transflate.main import make_model
-from transflate.data.Batch import Batch
+from transflate.data.Batch import Batch, collate_batch
 from transflate.helper import following_mask
 
 # def translate
@@ -114,7 +114,7 @@ def translate(text, vocab_src, vocab_tgt, spacy_de, spacy_en):
     tokenize_de = lambda x : [token.text for token in spacy_de.tokenizer(x)]
     tokenize_en = lambda x : [token.text for token in spacy_en.tokenizer(x)]
 
-    collate_fn = lambda x:  transflate.data.Batch.collate_batch(
+    collate_fn = lambda x:  collate_batch(
             batch=x,
             src_pipeline=tokenize_de,
             tgt_pipeline=tokenize_en,
