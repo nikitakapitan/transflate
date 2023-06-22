@@ -30,7 +30,7 @@
 |
 
 ============
-Transformers
+Transflate (Transformer Translate)
 ============
 This is my replication from scratch of the article Attentino is all you need. https://arxiv.org/abs/1706.03762
 
