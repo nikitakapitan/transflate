@@ -32,7 +32,7 @@
 ============
 Transformers
 ============
-This is my replication from scratch of the article Attentino is all you need: https://arxiv.org/abs/1706.03762
+This is my replication from scratch of the article Attentino is all you need. https://arxiv.org/abs/1706.03762
 
 
 
@@ -40,7 +40,12 @@ Data
 ----
 Use-case example is German-to-English machine translation.
 
-The model is trained on 30k English-German translation pairs: https://pytorch.org/text/stable/datasets.html#multi30k 
+The model is trained on 30k English-German translation pairs. https://pytorch.org/text/stable/datasets.html#multi30k 
+
+Tokenizer
+----
+For simplicity, we use **spacy** tokenizer. https://spacy.io/api/tokenizer
+
 
 
 Results
