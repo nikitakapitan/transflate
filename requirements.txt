@@ -1,0 +1,7 @@
+torch
+torchdata
+portalocker
+altair
+GPUtil
+torchtext
+spacy
