@@ -105,7 +105,7 @@ To reproduce the results you will need to train the model (~ 10 min on any stand
 
 then set your prefered german sentence
 
-.. /transflat.py::
+.. transflat.py::
 
    YOUR_GERMAN_SENTENCE = "Der große Junge geht zur Schule und spricht mit Vögeln"
 
