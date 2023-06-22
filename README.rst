@@ -98,21 +98,21 @@ Reproduce the results
 To reproduce the results you will need to train the model (~ 10 min on any standard GPU)
 
 
-.. prompt::
+.. bash::
 
    python train.py
 
 
 then set your prefered german sentence
 
-.. transflat.py::
+.. /transflat.py::
 
    YOUR_GERMAN_SENTENCE = "Der große Junge geht zur Schule und spricht mit Vögeln"
 
 
 Finally, run the machine translation
 
-.. prompt::
+.. bash::
 
    python transflate.py
 
