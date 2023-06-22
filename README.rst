@@ -95,14 +95,14 @@ This project replicates the original architecture of Transformer : Encoder-Decon
 Reproduce the results
 =====
 
-To reproduce the results you will need to train the model:
+To reproduce the results you will need to train the model (~ 10 min on any standard GPU)
 
 
 .. prompt::
 
    python train.py
 
-(~ 10 min on any single standard GPU like nvidia 3050)
+
 
 then set your prefered german sentence
 
