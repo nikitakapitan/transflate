@@ -67,7 +67,7 @@ Results
 
 Architecture
 ------------
-This project replicates the original architecture of Transformers which is basically Encoder-Deconder model with a lot of attentions.
+This project replicates the original architecture of Transformer : Encoder-Deconder model with a lot of attentions.
 
    
 .. image:: https://machinelearningmastery.com/wp-content/uploads/2021/08/attention_research_1.png
@@ -77,10 +77,10 @@ This project replicates the original architecture of Transformers which is basic
 .. architecture:: = {
         'src_vocab_len' : 8315, # GERMAN vocab size
         'tgt_vocab_len' : 6384, # ENGLISH vocab size
-        'N' : 6,                # nb of loops in Transformer
-        'd_model' : 512,        # Model size aka Input size aka Embedding size
+        'N' : 6,                # nb of Transformer layers 
+        'd_model' : 512,        # Model size aka Embedding size
         'd_ff' : 2048,          # nb of neurons in Linear layer
-        'h' : 8,                # nb of attention heads
+        'h' : 8,                # nb of attention heads (thus d_head = 512/8 = 64)
         'p_dropout' : 0.1       # dropout probability (for training)
     }
 
@@ -89,50 +89,29 @@ This project replicates the original architecture of Transformers which is basic
 Reproduce the results
 =====
 
-To reproduce the results you will need no more than execute the cells in google colab 🤗
-
-Basically, we will need only NumPy, PyTorch and some side libs, no more.
-
-- We will not import any models  : instead we will build the Transformer from scratch using torch.
-- We will not import any weights : instead we will train the model from scratch on row data.
-
-So, let's rock and roll:
-
-1. Build and train the model from scratch.
------
-- Go to https://colab.research.google.com/ 
-- select 'GitHub' and past https://github.com/nikitakapitan/transflate
-- choose [DEMO]Train.ipynb
-
-By executing all cells you will connect to your google drive (a place where the model weights will be saved).
-
-First, you will build the model using **make_model** function, where you can customize the model using **architecture** dict.
-
-Then you will eventually launch the training on GER-ENG pairs dataset (about 15 minutes on colab's GPU).
-
-The final model weights will be stored in **multi30k_model_final.pt** file.
-
-The last command (!cp multi30...) will copy the weigts from current colab session to your Google Drive.
-
-Now you have trained weights on you Google Drive 🤗
+To reproduce the results you will need to train the model:
 
 
-2. Translate your own German sentence!
------
+.. prompt::
 
-- Go to https://colab.research.google.com/ 
-- select 'GitHub' and past https://github.com/nikitakapitan/transflate
-- choose [DEMO]Translate.ipynb
+   python train.py
 
-By executing all cells you will connect to your google drive (a place where the model will search for weights **multi30k_model_final.pt**)
+(~ 10 min on any single standard GPU like nvidia 3050)
 
-Then please define your own phrase inside **YOUR_GERMAN_SENTENCE**
+then set your prefered german sentence
 
-Finally, you will see the English translation as the output. 
+.. transflat.py::
+
+   YOUR_GERMAN_SENTENCE = "Der große Junge geht zur Schule und spricht mit Vögeln"
 
 
-Note : 
-----
-If you are too lazy to create your own german phrase, you can use some samples from validation dataset.
+Finally, run the machine translation
 
-To do this, during step 2 select [DEMO]Predict.ipynb and run it.
+.. prompt::
+
+   python transflate.py
+
+
+You can also find colab notebooks with similar code and simply execute the cells 🤗
+
+
