@@ -103,7 +103,6 @@ To reproduce the results you will need to train the model (~ 10 min on any stand
    python train.py
 
 
-
 then set your prefered german sentence
 
 .. transflat.py::
