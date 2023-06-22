@@ -34,13 +34,12 @@ Transflate (Transformer Translate)
 ============
 This is my replication from scratch of the article Attentino is all you need. https://arxiv.org/abs/1706.03762
 
-Applied fro machine translation from German to English.
+Use-case example is German-to-English machine translation.
 
 
 
 Data 
 ----
-Use-case example is German-to-English machine translation.
 
 The model is trained on 30k English-German translation pairs. https://pytorch.org/text/stable/datasets.html#multi30k 
 
