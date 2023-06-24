@@ -1,3 +1,4 @@
+# after running : multi30k_model_final.pt will be created.
 
 import torch
 from transflate.data.token import load_tokenizers
