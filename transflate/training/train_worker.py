@@ -38,7 +38,7 @@ def train_worker(gpu, ngpus_per_node, vocab_src, vocab_tgt,
     model = make_model(
         src_vocab_len = architecture['src_vocab_len'], 
         tgt_vocab_len = architecture['tgt_vocab_len'], 
-        N=6,
+        N=architecture['N'],
         d_model=architecture['d_model'], 
         d_ff = architecture['d_ff'],
         h = architecture['h'],
@@ -82,7 +82,7 @@ def train_worker(gpu, ngpus_per_node, vocab_src, vocab_tgt,
             step=step, model_size=architecture['d_model'], factor=1, warmup=config['warmup']
         )
     )
-    train_state = TrainState()
+    train_state = TrainState() # to track the intermediate results
 
     for epoch in range(config['num_epochs']):
         # if is_distributed:

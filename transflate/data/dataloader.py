@@ -20,6 +20,11 @@ def create_dataloaders(device, vocab_src, vocab_tgt, spacy_de, spacy_en,
     train : bool
         True - training AND valid! dataset with batches
         False - only valid dataset
+
+    output: train_dataloader
+    ( [0, 14, 38 ... 232, 1, 2, 2, 2, 2], [0, 6, 39, .., 13, 1, 2, 2, 2])
+    ( [0, 56, 12, ..., 8, 1, 2, 2, 2, 2], [0, 6, 12, ..., 4, 1, 2, 2, 2])
+    ....
     """
 
     def tokenize_de(text):

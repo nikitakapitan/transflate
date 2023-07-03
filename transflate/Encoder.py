@@ -6,10 +6,11 @@ import torch.nn as nn
 from copy import deepcopy
 from transflate.helper import clones
 from transflate.LayerNorm import LayerNorm
+from transflate.EncoderLayer import EncoderLayer
 
 class Encoder(nn.Module):
 
-    def __init__(self, layer, N):
+    def __init__(self, layer:EncoderLayer, N:int):
         super().__init__()
         self.layers = clones(layer, N) 
         self.norm = LayerNorm(layer.size)

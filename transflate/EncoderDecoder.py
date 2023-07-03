@@ -22,11 +22,11 @@ class EncoderDecoder(nn.Module):
 
     def forward(self, src, tgt, src_mask, tgt_mask):
         """supposed to be called in __main__
-        src (tensor) : memory
+        src (tensor) : source input text
         tgt (tensor) : self-dynamic output
         """
-        encoding = self.encode(src, src_mask) # own class method
-        decoding = self.decode(encoding, src_mask, tgt, tgt_mask) # own class method
+        memory = self.encode(src, src_mask)
+        decoding = self.decode(memory, src_mask, tgt, tgt_mask) 
         return decoding
         
     def encode(self, src, src_mask):
